@@ -31,7 +31,7 @@ from ray.rllib.utils.typing import TensorType
 from ray.rllib.utils.torch_utils import convert_to_torch_tensor
 from ray.rllib.agents.a3c.a3c_torch_policy import A3CTorchPolicy
 from ray.rllib.agents.a3c.a2c import A2C_DEFAULT_CONFIG as A2C_CONFIG, A2CTrainer
-from ray.rllib.agents.ppo.ppo_torch_policy import ValueNetworkMixin
+from ray.rllib.agents.ppo.ppo_tf_policy import ValueNetworkMixin
 from marllib.marl.algos.utils.mixing_critic import MixingValueMixin, value_mixing_postprocessing
 
 torch, nn = try_import_torch()
@@ -108,8 +108,8 @@ def get_policy_class_vda2c(config_):
         return VDA2CTorchPolicy
 
 
-VDA2CTrainer = A2CTrainer.with_updates(
-    name="VDA2CTrainer",
-    default_policy=None,
-    get_policy_class=get_policy_class_vda2c,
-)
+# VDA2CTrainer = A2CTrainer.with_updates(
+#     name="VDA2CTrainer",
+#     default_policy=None,
+#     get_policy_class=get_policy_class_vda2c,
+# )
